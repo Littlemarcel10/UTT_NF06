@@ -154,12 +154,16 @@ void exo_47()
     }
 }
 
+void exo_texte(){
+    
+}
 int main()
 {
     int choix;
     printf("-------------------------------------\n");
     printf("| 1. Exercice 46                    |\n");
     printf("| 2. Exercice 47                    |\n");
+    printf("| 3. Texte                          |\n");
     printf("|Choississez l'exercice à exécuter: |\n");
     printf("-------------------------------------\n");
     scanf("%d", &choix);
@@ -177,6 +181,9 @@ int main()
         break;
     case 47:
         exo_47();
+        break;
+    case 48:
+        exo_texte();
         break;
     default:
         printf("Choix invalide");
