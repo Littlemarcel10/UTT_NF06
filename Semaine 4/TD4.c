@@ -138,7 +138,7 @@ void exo_47()
             note_final = tab[i].final;
             note_median = tab[i].median;
             note_moyenne = (note_median * 0.4 + 0.6 * note_final);
-            printf(" ~~~~~~~~~~~~~~\n Etudiant %d\n Nom: %s \n Prenom: %s\n Médian: %d\n Note final: %d\n Moyenne: %.2f\n ~~~~~~~~~~~~~~\n", i + 1, tab[i].nom, tab[i].prenom, tab[i].median, tab[i].final, note_moyenne);
+            printf(" ~~~~~~~~~~~~~~\n Nom: %s \n Prenom: %s\n Médian: %d\n Note final: %d\n Moyenne: %.2f\n ~~~~~~~~~~~~~~\n", tab[i].nom, tab[i].prenom, tab[i].median, tab[i].final, note_moyenne);
         }
         return;
     }
@@ -147,11 +147,21 @@ void exo_47()
 int main()
 {
     int choix;
-    printf("Choisissez un exercice: ");
+    printf("-------------------------------------\n");
+    printf("| 1. Exercice 46                    |\n");
+    printf("| 2. Exercice 47                    |\n");
+    printf("|Choississez l'exercice à exécuter: |\n");
+    printf("-------------------------------------\n");
     scanf("%d", &choix);
 
     switch (choix)
     {
+    case 1:
+        exo_46();
+        break;
+    case 2:
+        exo_47();
+        break;
     case 46:
         exo_46();
         break;
