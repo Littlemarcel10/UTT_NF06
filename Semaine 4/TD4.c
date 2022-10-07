@@ -130,6 +130,16 @@ void exo_47()
                     tab[i] = tab[j];
                     tab[j] = temp;
                 }
+                //si les noms sont identiques, on compare les prénoms
+                else if (strcmp(tab[i].nom, tab[j].nom) == 0)
+                {
+                    if (strcmp(tab[i].prenom, tab[j].prenom) < 0)
+                    {
+                        etudiant temp = tab[i];
+                        tab[i] = tab[j];
+                        tab[j] = temp;
+                    }
+                }
             }
         }
         // on affiche le tableau
