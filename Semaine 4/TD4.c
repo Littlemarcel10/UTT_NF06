@@ -3,16 +3,18 @@
 #include <string.h>
 #include <math.h>
 
-typedef struct{
+typedef struct
+{
     char nom[20];
     char prenom[20];
     int median;
     int moyenne;
     int final;
-}etudiant;
+} etudiant;
 
-void exo_46(){
-    //Opération sur les tableaux
+void exo_46()
+{
+    // Opération sur les tableaux
     int N;
     int choix;
     printf("Veuillez saisir la taille de votre vecteur: \n");
@@ -21,11 +23,13 @@ void exo_46(){
     int vecteur2[N];
     int i;
     printf("Veuillez saisir les valeurs de votre vecteur: \n");
-    for(i=0; i<N; i++){
+    for (i = 0; i < N; i++)
+    {
         scanf("%d", &vecteur[i]);
     }
     printf("Veuillez saisir les valeurs de votre vecteur2: \n");
-    for(i=0; i<N; i++){
+    for (i = 0; i < N; i++)
+    {
         scanf("%d", &vecteur2[i]);
     }
     printf("Veuillez choisir l'opération à effectuer: \n");
@@ -34,31 +38,36 @@ void exo_46(){
     printf("3. Transposée du vecteur\n");
 
     scanf("%d", &choix);
-    switch(choix){
-        case 1:
-            printf("Addition des vecteurs: \n");
-            for(i=0; i<N; i++){
-                printf("%d ", vecteur[i]+vecteur2[i]);
-            }
-            break;
-        case 2:
-            printf("Soustraction des vecteurs: \n");
-            for(i=0; i<N; i++){
-                printf("%d ", vecteur[i]-vecteur2[i]);
-            }
-            break;
-        case 3:
-            printf("Transposée du vecteur: \n");
-            for(i=0; i<N; i++){
-                printf("%d ", vecteur[i]);
-            }
-            break;
-        default:
-            printf("Choix invalide");
-            break;
+    switch (choix)
+    {
+    case 1:
+        printf("Addition des vecteurs: \n");
+        for (i = 0; i < N; i++)
+        {
+            printf("%d ", vecteur[i] + vecteur2[i]);
+        }
+        break;
+    case 2:
+        printf("Soustraction des vecteurs: \n");
+        for (i = 0; i < N; i++)
+        {
+            printf("%d ", vecteur[i] - vecteur2[i]);
+        }
+        break;
+    case 3:
+        printf("Transposée du vecteur: \n");
+        for (i = 0; i < N; i++)
+        {
+            printf("%d ", vecteur[i]);
+        }
+        break;
+    default:
+        printf("Choix invalide");
+        break;
     }
 }
-void exo_47(){
+void exo_47()
+{
     system("cls");
     int N;
     printf("Veuillez saisir le nombre d'étudiants: \n");
@@ -70,9 +79,10 @@ void exo_47(){
     int note_median;
     int taille_nom, taille_prenom;
     float note_moyenne;
-    for(i=0; i<N; i++){
+    for (i = 0; i < N; i++)
+    {
         printf("-------------------------\n");
-        printf("Etudiant %d:\n",i+1);
+        printf("Etudiant %d:\n", i + 1);
         printf("Nom: ");
         scanf("%s", tab[i].nom);
         fflush(stdin);
@@ -88,61 +98,68 @@ void exo_47(){
         printf("-------------------------\n");
         taille_nom = strlen(tab[i].nom);
         taille_prenom = strlen(tab[i].prenom);
-        for(j=0; j<taille_nom; j++){
-            //on transforme les lettres majuscules en minuscules
-            if(tab[i].nom[j] >= 65 && tab[i].nom[j] <= 90){
+        for (j = 0; j < taille_nom; j++)
+        {
+            // on transforme les lettres majuscules en minuscules
+            if (tab[i].nom[j] >= 65 && tab[i].nom[j] <= 90)
+            {
                 tab[i].nom[j] += 32;
             }
         }
-        for (j=0; j<taille_prenom; j++){
-            if(tab[i].prenom[j] >= 65 && tab[i].prenom[j] <= 90){
+        for (j = 0; j < taille_prenom; j++)
+        {
+            if (tab[i].prenom[j] >= 65 && tab[i].prenom[j] <= 90)
+            {
                 tab[i].prenom[j] += 32;
             }
         }
-        
     }
     printf("Voulez-voir les informations des étudiants dans l'ordre croissant des nom et prénom? (1: oui, 0: non) \n");
     int choix;
     scanf("%d", &choix);
-    if(choix == 1){
-        //on va trier le tableau 
-        for(i=0; i<N; i++){
-            for(j=0; j<N; j++){
-                if(strcmp(tab[i].nom, tab[j].nom) < 0){
+    if (choix == 1)
+    {
+        // on va trier le tableau
+        for (i = 0; i < N; i++)
+        {
+            for (j = 0; j < N; j++)
+            {
+                if (strcmp(tab[i].nom, tab[j].nom) < 0)
+                {
                     etudiant temp = tab[i];
                     tab[i] = tab[j];
                     tab[j] = temp;
                 }
             }
         }
-        //on affiche le tableau
-        for(i=0; i<N; i++){    
-        note_final = tab[i].final;
-        note_median = tab[i].median;
-        note_moyenne = (note_median*0.4 + 0.6*note_final);
-            printf(" ~~~~~~~~~~~~~~\n Etudiant %d\n Nom: %s \n Prenom: %s\n Médian: %d\n Note final: %d\n Moyenne: %.2f\n ~~~~~~~~~~~~~~\n",i+1, tab[i].nom, tab[i].prenom, tab[i].median, tab[i].final, note_moyenne);
+        // on affiche le tableau
+        for (i = 0; i < N; i++)
+        {
+            note_final = tab[i].final;
+            note_median = tab[i].median;
+            note_moyenne = (note_median * 0.4 + 0.6 * note_final);
+            printf(" ~~~~~~~~~~~~~~\n Etudiant %d\n Nom: %s \n Prenom: %s\n Médian: %d\n Note final: %d\n Moyenne: %.2f\n ~~~~~~~~~~~~~~\n", i + 1, tab[i].nom, tab[i].prenom, tab[i].median, tab[i].final, note_moyenne);
         }
         return;
     }
-
-
-
 }
 
-int main(){
+int main()
+{
     int choix;
     printf("Choisissez un exercice: ");
     scanf("%d", &choix);
 
-    switch(choix){
-        case 46:
-            exo_46();
-            break;
-        case 47:
-            exo_47();
-            break;
-        default:
-            printf("Choix invalide");
-            break;
+    switch (choix)
+    {
+    case 46:
+        exo_46();
+        break;
+    case 47:
+        exo_47();
+        break;
+    default:
+        printf("Choix invalide");
+        break;
     }
 }
