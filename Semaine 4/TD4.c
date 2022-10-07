@@ -59,35 +59,53 @@ void exo_46(){
     }
 }
 void exo_47(){
+    system("cls");
     int N;
     printf("Veuillez saisir le nombre d'étudiants: \n");
     scanf("%d", &N);
     printf("Veuillez saisir les informations des étudiants: \n");
     etudiant tab[N];
-    int i;
-    float note_final;
-    float note_median;
+    int i, j;
+    int note_final;
+    int note_median;
+    int taille_nom, taille_prenom;
     float note_moyenne;
     for(i=0; i<N; i++){
+        printf("-------------------------\n");
+        printf("Etudiant %d:\n",i+1);
         printf("Nom: ");
         scanf("%s", tab[i].nom);
+        fflush(stdin);
         printf("Prenom: ");
         scanf("%s", tab[i].prenom);
+        fflush(stdin);
         printf("Médiane: ");
-        scanf("%.2f", &tab[i].median);
+        scanf("%d", &tab[i].median);
+        fflush(stdin);
         printf("Note finale: ");
-        scanf("%.2f", &tab[i].final);
-        note_final = tab[i].final;
-        note_median = tab[i].median;
-        note_moyenne = (note_median*0.4 + 0.6*note_final);
-        tab[i].moyenne = note_moyenne;
+        scanf("%d", &tab[i].final);
+        fflush(stdin);
+        printf("-------------------------\n");
+        taille_nom = strlen(tab[i].nom);
+        taille_prenom = strlen(tab[i].prenom);
+        for(j=0; j<taille_nom; j++){
+            //on transforme les lettres majuscules en minuscules
+            if(tab[i].nom[j] >= 65 && tab[i].nom[j] <= 90){
+                tab[i].nom[j] += 32;
+            }
+        }
+        for (j=0; j<taille_prenom; j++){
+            if(tab[i].prenom[j] >= 65 && tab[i].prenom[j] <= 90){
+                tab[i].prenom[j] += 32;
+            }
+        }
+        
     }
     printf("Voulez-voir les informations des étudiants dans l'ordre croissant des nom et prénom? (1: oui, 0: non) \n");
     int choix;
     scanf("%d", &choix);
     if(choix == 1){
         //on va trier le tableau 
-        int j;
         for(i=0; i<N; i++){
             for(j=0; j<N; j++){
                 if(strcmp(tab[i].nom, tab[j].nom) < 0){
@@ -98,8 +116,11 @@ void exo_47(){
             }
         }
         //on affiche le tableau
-        for(i=0; i<N; i++){
-            printf("Nom: %s, Prenom: %s, Médiane: %.2f, Moyenne: %.2f, Note finale: %.2f\n", tab[i].nom, tab[i].prenom, tab[i].median, tab[i].moyenne, tab[i].final);
+        for(i=0; i<N; i++){    
+        note_final = tab[i].final;
+        note_median = tab[i].median;
+        note_moyenne = (note_median*0.4 + 0.6*note_final);
+            printf(" ~~~~~~~~~~~~~~\n Etudiant %d\n Nom: %s \n Prenom: %s\n Médian: %d\n Note final: %d\n Moyenne: %.2f\n ~~~~~~~~~~~~~~\n",i+1, tab[i].nom, tab[i].prenom, tab[i].median, tab[i].final, note_moyenne);
         }
         return;
     }
