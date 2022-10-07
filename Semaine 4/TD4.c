@@ -155,7 +155,34 @@ void exo_47()
 }
 
 void exo_texte(){
+    FILE *ptr;
+    char name[20];
+    char str[100];
+    printf("Veuillez saisir le nom du fichier: \n");
+    scanf("%s", name);
+    ptr = fopen(name, "r");
+    if (ptr == NULL)
+    {
+        printf("Impossible d'ouvrir le fichier");
+        return;
+    }
+    int i = 0;
+    int z = 0;
+    do
+    {
+        fscanf(ptr, "%c", &str[i]);
+        printf("%c", str[i]);
+        if (str[i] == '\n')
+        {
+            z++;
+        }
+        i++;
+
+    } while (z == 0);
+    fclose(ptr);
+
     
+    return 0;
 }
 int main()
 {
