@@ -68,7 +68,6 @@ void exo_46()
 }
 void exo_47()
 {
-    system("cls");
     int N;
     printf("Veuillez saisir le nombre d'étudiants: \n");
     scanf("%d", &N);
@@ -154,43 +153,14 @@ void exo_47()
     }
 }
 
-void exo_texte(){
-    FILE *ptr;
-    char name[20];
-    char str[100];
-    printf("Veuillez saisir le nom du fichier: \n");
-    scanf("%s", name);
-    ptr = fopen(name, "r");
-    if (ptr == NULL)
-    {
-        printf("Impossible d'ouvrir le fichier");
-        return;
-    }
-    int i = 0;
-    int z = 0;
-    do
-    {
-        fscanf(ptr, "%c", &str[i]);
-        printf("%c", str[i]);
-        if (str[i] == '\n')
-        {
-            z++;
-        }
-        i++;
-
-    } while (z == 0);
-    fclose(ptr);
-
-    
-    return 0;
-}
 int main()
 {
+    system("cls");
     int choix;
     printf("-------------------------------------\n");
     printf("| 1. Exercice 46                    |\n");
     printf("| 2. Exercice 47                    |\n");
-    printf("| 3. Texte                          |\n");
+    printf("| 3. Autre test                     |\n");
     printf("|Choississez l'exercice à exécuter: |\n");
     printf("-------------------------------------\n");
     scanf("%d", &choix);
@@ -203,14 +173,14 @@ int main()
     case 2:
         exo_47();
         break;
+    case 3:
+        exo_texte();
+        break;
     case 46:
         exo_46();
         break;
     case 47:
         exo_47();
-        break;
-    case 48:
-        exo_texte();
         break;
     default:
         printf("Choix invalide");
