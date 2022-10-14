@@ -171,11 +171,7 @@ int main()
         exo_46();
         break;
     case 2:
-        exo_47();
-        break;
-    case 3:
-        exo_texte();
-        break;
+        exo_47();1
     case 46:
         exo_46();
         break;
