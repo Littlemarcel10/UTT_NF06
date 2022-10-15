@@ -113,25 +113,25 @@ void reserver(){
         switch (marque)
         {
         case 1:
-            client.vehicule_marque = Renault;
+            client[i].vehicule_marque = Renault;
             break;
         case 2:
-            client.vehicule_marque = Peugeot;
+            client[i].vehicule_marque = Peugeot;
             break;
         case 3:
-            client.vehicule_marque = Citroen;
+            client[i].vehicule_marque = Citroen;
             break;
         case 4:
-            client.vehicule_marque = BMW;
+            client[i].vehicule_marque = BMW;
             break;
         case 5:
-            client.vehicule_marque = Audi;
+            client[i].vehicule_marque = Audi;
             break;
         default:
             printf("Erreur de saisie\n");
             break;
         }
-        client.vehicule_type = moto;
+        client[i].vehicule_type = moto;
         printf("Veuillez saisir la vitesse maximale de la moto: \n");
         int vitesse;
         scanf("%d", &vitesse);
@@ -161,12 +161,12 @@ void reserver(){
         }
         printf("Le prix de la reservation est de %d€\n", prix);
         //On crée la place
-        struct place place_moto[20];
-        place_moto[i]->date = date;
-        place_moto[i].nb_heures = nb_heures;
-        place_moto[i].place_vehicule = &client;
+        struct place place;
+        place.date = date;
+        place.nb_heures = nb_heures;
+        place.place_vehicule = &client;
         // On attribue un numéro de place au client
-        place_moto[i].place_numero = 10 - nbPlace_moto;
+        place.place_numero = 10 - nbPlace_moto;
 
         //On réduit le nombre de place disponible
         nbPlace_moto--;
@@ -285,7 +285,7 @@ void update(){
 }
 
 void info(){
-    struct place place_moto[20];
+    struct parking client;
     //On affiche les informations du véhicule d'une place
     int place;
     int choix;
@@ -303,13 +303,13 @@ void info(){
         }
         else{
             //On affiche les informations du véhicule
-            printf("Le proprietaire est %s\n", place_moto[place].place_vehicule->vehicule_proprietaire);
-            printf("L'immatriculation est %s\n", place_moto[place].place_vehicule->vehicule_immatriculation);
-            printf("L'année est %d\n", place_moto[place].place_vehicule->vehicule_annee);
-            printf("La marque est %d\n", place_moto[place].place_vehicule->vehicule_marque);
-            printf("Le type est %d\n", place_moto[place].place_vehicule->vehicule_type);
-            printf("Le nombre d'heures est %d\n", place_moto[place].nb_heures);
-            printf("La date est %d\n", place_moto[place].date);
+            printf("Le proprietaire est %s\n", client.place_moto[place].place_vehicule->vehicule_proprietaire);
+            printf("L'immatriculation est %s\n", client.place_moto[place].place_vehicule->vehicule_immatriculation);
+            printf("L'année est %d\n", client.place_moto[place].place_vehicule->vehicule_annee);
+            printf("La marque est %d\n", client.place_moto[place].place_vehicule->vehicule_marque);
+            printf("Le type est %d\n", client.place_moto[place].place_vehicule->vehicule_type);
+            printf("Le nombre d'heures est %d\n", client.place_moto[place].nb_heures);
+            printf("La date est %d\n", client.place_moto[place].date);
         }
         
         
@@ -317,7 +317,7 @@ void info(){
 
     }
 }
-*/
+
 void etat(){
 
 }
@@ -725,6 +725,7 @@ void test_reserver(){
     int i;
         i= 10 - nbPlace_moto;
         struct place client;
+        client.place_numero = i;
         printf("Veuillez saisir le nom du proprietaire: \n");
         char nom[20];
         scanf("%s", nom);
@@ -733,7 +734,7 @@ void test_reserver(){
         printf("Veuillez saisir l'immatriculation du vehicule: \n");
         char immat[20];
         scanf("%s", immat);
-        strcpy(client.place_vehicule->vehicule_immatriculation, immat);
+        strcpy();
         printf("Veuillez saisir l'année du véhicule: \n");
         int annee;
         fflush(stdin);
