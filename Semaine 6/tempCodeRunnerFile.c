@@ -1,0 +1,1 @@
+fscanf(fichier, "%s[^\n]", livre[i].titre);
