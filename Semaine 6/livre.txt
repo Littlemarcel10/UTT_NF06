@@ -1,7 +1,3 @@
-Il y a 1 livres enregistrés : 
-Dupond
-je hais nf06
-LBIFZE
-2001
-larousse
-0
+Il y a 2 livres enregistrés : 
+marcel | feur_une_histoire_d'amour | PIBASDKL | 2022 | kikiproduit | 12 | 5 | 2003 | 1
+astley | quoi | POUREZUR | 2012 | robert | 1 | 1 | 1 | 0
