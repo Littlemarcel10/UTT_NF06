@@ -1,5 +1,7 @@
+import datetime
+jour = datetime.date.today()
 
-print("Bonjour UTT")
+print("Bonjour UTT, nous sommes le", jour)
 a = 'Jean'
 b='Julien'
 c= '18'
