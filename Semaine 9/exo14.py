@@ -135,5 +135,3 @@ while continu == 0:
         ajouter_activité()
     elif choix == 8:
         continu = 1
-
-    
