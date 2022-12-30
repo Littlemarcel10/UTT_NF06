@@ -285,7 +285,7 @@ void exo15(){
 
 
 int main(){
-    exo11();
+    exo2();
     return 0;
 }
 
